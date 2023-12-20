@@ -22,7 +22,7 @@ function App() {
   }
 
   React.useEffect(() => {
-    apiCall()
+    // apiCall()
     
   }, [])
 
