@@ -14,15 +14,23 @@ function App() {
   const dispatch = useDispatch()
   const home = useSelector((state) => state.home)
 
-  const apiCall = () => {
-    fetchDataFromApi("/movie/popular")
-    .then((data) => {console.log(data)
-      dispatch(getApiConfigration(data))
+  const fetchApiConfig = () => {
+    fetchDataFromApi("/configuration")
+    .then((data) => {
+      console.log( "data " + data)
+      const url = {
+        backdrop: data.images.secure_base_url + "original",
+        poster: data.images.secure_base_url + "original",
+        profile: data.images.secure_base_url + "original"
+      }
+      console.log(data)
+      dispatch(getApiConfigration(url))
     })
   }
 
   React.useEffect(() => {
-    // apiCall()
+
+    fetchApiConfig();
     
   }, [])
 
