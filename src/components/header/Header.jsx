@@ -17,6 +17,25 @@ const Header = () => {
     const location = useLocation();
     const [searchQuery, setSearchQuery] = React.useState("");
 
+    const controlNavBar = () => {
+        const currentScrollY = window.scrollY;
+        if(currentScrollY > 200) {
+            if(currentScrollY > lastScrollY) {
+                setShow("hide");
+            } else {
+                setShow("show");
+            }
+        } else {
+            setShow("top");
+        }
+        setLastScrollY(currentScrollY);
+    }
+
+    useEffect( () => {
+        window.addEventListener("scroll", controlNavBar)
+        return window.removeEventListener("scroll", controlNavBar)
+    }, lastScrollY)
+
     const openSearch = () => {
         setMobileMenu(false);
         setShowSearch(true);
@@ -37,6 +56,11 @@ const Header = () => {
         setShowSearch(false);
     };
 
+    const navigationHandler = (path) => {
+        navigate(`explore/${path}`);
+        setMobileMenu(false);
+    }
+
     return (
         <header className={`header ${mobileMenu ? "mobileView" : ""} ${show}`}>
             <ContentWrapper>
@@ -45,10 +69,10 @@ const Header = () => {
                 </div>
 
                 <ul className="menuItems">
-                    <li className="menuItem">Movies</li>
-                    <li className="menuItem">TV Shows</li>
+                    <li className="menuItem" onClick={() => {navigationHandler("movie")}}>Movies</li>
+                    <li className="menuItem" onClick={() => {navigationHandler("tv")}}>TV Shows</li>
                     <li className="menuItem">
-                        <HiOutlineSearch />
+                        <HiOutlineSearch onClick={() => openSearch()}/>
                     </li>
                 </ul>
 
