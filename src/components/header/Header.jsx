@@ -31,9 +31,14 @@ const Header = () => {
         setLastScrollY(currentScrollY);
     }
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [location]);
+
     useEffect( () => {
         window.addEventListener("scroll", controlNavBar)
         return window.removeEventListener("scroll", controlNavBar)
+
     }, lastScrollY)
 
     const openSearch = () => {
