@@ -18,6 +18,7 @@ const Header = () => {
     const [searchQuery, setSearchQuery] = React.useState("");
 
     const controlNavBar = () => {
+
         const currentScrollY = window.scrollY;
         if(currentScrollY > 200) {
             if(currentScrollY > lastScrollY) {
@@ -39,7 +40,7 @@ const Header = () => {
         window.addEventListener("scroll", controlNavBar)
         return window.removeEventListener("scroll", controlNavBar)
 
-    }, lastScrollY)
+    }, [lastScrollY])
 
     const openSearch = () => {
         setMobileMenu(false);

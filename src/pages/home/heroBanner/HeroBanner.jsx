@@ -22,11 +22,11 @@ const HeroBanner = () => {
     React.useEffect(() => {
         const bgImage =
             data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path;
-            console.log("img " + url.backdrop );
-            console.log("imgddd " + bgImage );
+            // console.log("img " + url.backdrop );
+            // console.log("imgddd " + bgImage );
         const img = `${url.backdrop}${bgImage}`;
         
-        console.log("mujeeb " + img);
+        // console.log("mujeeb " + img);
         setBackgroundImage(img);
     }, [data]);
 

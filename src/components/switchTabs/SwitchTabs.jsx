@@ -1,7 +1,6 @@
 import "./switchTabs.scss";
 import React from "react";
 
-
 const SwitchTabs = ({ data, onTabChange }) => {
     const [activeTab, setActiveTab] = React.useState(0);
 
@@ -15,6 +14,9 @@ const SwitchTabs = ({ data, onTabChange }) => {
 
         onTabChange(tab, index);
     }
+
+    
+
     return (
         <div className="switchingTabs">
             <div className="tabItems">
