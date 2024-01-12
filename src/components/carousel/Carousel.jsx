@@ -11,61 +11,8 @@ import ContentWrapper from "../contentWrapper/ContentWrapper";
 import MyImage from "../img/MyImage";
 import PosterFallback from "../../assets/no-poster.png";
 import "./style.scss";
-
-// const Carousel = ({ data, loading }) => {
-//     const navigate = useNavigate();
-//     const carouselContainer = useRef();
-//     const { url } = useSelector((state) => state.home);
-
-//     console.log("dwdwd " + data);
-//     const navigation = (direction) => {};
-
-//     return (
-//         <div className="carousel">
-//             <ContentWrapper>
-//                 <BsFillArrowLeftCircleFill
-//                     className="carouselLeftNav arrow"
-//                     onClick={() => navigation("left")}
-//                 />
-
-//                 <BsFillArrowRightCircleFill
-//                     className="carouselRightNav arrow"
-//                     onClick={() => navigation("right")}
-//                 />
-//             </ContentWrapper>
-
-//             {!loading ? (
-//                 <div className="carouselItems" ref={carouselContainer}>
-//                     {data?.map((item) => {
-//                         const posterUrl = item.poster_path
-//                             ? `${url.poster}${item.poster_path}`
-//                             : PosterFallback;
-
-//                         return (
-//                             <div key={item.id} className="carouselItem">
-//                                 <div className="posterBlock">
-//                                     <MyImage image={posterUrl} />
-//                                 </div>
-//                                 <div className="textBlock">
-//                                         <span className="title">
-//                                             {item.title || item.name}
-//                                         </span>
-//                                         <span className="date">
-//                                             {dayjs(item.release_date || item.first_air_date).format(
-//                                                 "MMM D, YYYY"
-//                                             )}
-//                                         </span>
-//                                     </div>
-//                             </div>
-//                         );
-//                     })}
-//                 </div>
-//             ) : (
-//                 <span>Loading</span>
-//             )}
-//         </div>
-//     );
-// };
+import CircleRating from "./CircleRating.jsx";
+import Genres from "../genres/Genres.jsx";
 
 const Carousel = ({ data, loading, endpoint, title }) => {
     const carouselContainer = useRef();
@@ -98,7 +45,6 @@ const Carousel = ({ data, loading, endpoint, title }) => {
         );
     };
 
-    console.log("loading " + loading);
     return (
         <div className="carousel">
             <ContentWrapper>
@@ -131,14 +77,14 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                                 >
                                     <div className="posterBlock">
                                         <MyImage image={posterUrl} />
-                                        {/* <CircleRating
+                                        <CircleRating
                                             rating={item.vote_average.toFixed(
                                                 1
                                             )}
                                         />
                                         <Genres
                                             data={item.genre_ids.slice(0, 2)}
-                                        /> */}
+                                        />
                                     </div>
                                     <div className="textBlock">
                                         <span className="title">

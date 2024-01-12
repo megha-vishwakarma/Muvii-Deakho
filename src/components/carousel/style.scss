@@ -47,7 +47,9 @@
             padding: 0;
         }
         .skeletonItem {
+            background-color: red;
             width: 125px;
+            height: 100px;
             @include md {
                 width: calc(25% - 15px);
             }
