@@ -40,7 +40,7 @@ function App() {
       <Routes>
         <Route path="/"  element = {<HomePage/>}/>
         <Route path="/:mediaType/:id"  element = {<Details/>}/>
-        <Route path = "/search/:searchQuery" element = {<SearchResult/>}/>
+        <Route path = "/search/:query" element = {<SearchResult/>}/>
         <Route path = "*" element = {ErrorSection}/>
       </Routes>
       <Footer/>

@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import "./Header.scss";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import logo from "../../assets/movix-logo.png";
+import { IoChevronBackOutline } from "react-icons/io5";
 
 const Header = () => {
     const [show, setShow] = useState("top");
@@ -18,10 +19,9 @@ const Header = () => {
     const [searchQuery, setSearchQuery] = React.useState("");
 
     const controlNavBar = () => {
-
         const currentScrollY = window.scrollY;
-        if(currentScrollY > 200) {
-            if(currentScrollY > lastScrollY) {
+        if (currentScrollY > 200) {
+            if (currentScrollY > lastScrollY) {
                 setShow("hide");
             } else {
                 setShow("show");
@@ -30,17 +30,18 @@ const Header = () => {
             setShow("top");
         }
         setLastScrollY(currentScrollY);
-    }
+    };
+
+    const {url} = useParams();
 
     useEffect(() => {
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 0);
     }, [location]);
 
-    useEffect( () => {
-        window.addEventListener("scroll", controlNavBar)
-        return window.removeEventListener("scroll", controlNavBar)
-
-    }, [lastScrollY])
+    useEffect(() => {
+        window.addEventListener("scroll", controlNavBar);
+        return window.removeEventListener("scroll", controlNavBar);
+    }, [lastScrollY]);
 
     const openSearch = () => {
         setMobileMenu(false);
@@ -65,20 +66,46 @@ const Header = () => {
     const navigationHandler = (path) => {
         navigate(`explore/${path}`);
         setMobileMenu(false);
-    }
+    };
 
     return (
         <header className={`header ${mobileMenu ? "mobileView" : ""} ${show}`}>
             <ContentWrapper>
-                <div className="logo">
-                    <img src={logo} alt="logo" />
+                <div className="navigation-icons">
+                    {
+                        
+                        !url == "/" ? (<IoChevronBackOutline className="back-btn" />): null
+                    }
+
+                    <div
+                        className="logo"
+                        onClick={() => {
+                            navigate("/");
+                        }}
+                    >
+                        <img src={logo} alt="logo" />
+                    </div>
                 </div>
 
                 <ul className="menuItems">
-                    <li className="menuItem" onClick={() => {navigationHandler("movie")}}>Movies</li>
-                    <li className="menuItem" onClick={() => {navigationHandler("tv")}}>TV Shows</li>
+                    <li
+                        className="menuItem"
+                        onClick={() => {
+                            navigationHandler("movie");
+                        }}
+                    >
+                        Movies
+                    </li>
+                    <li
+                        className="menuItem"
+                        onClick={() => {
+                            navigationHandler("tv");
+                        }}
+                    >
+                        TV Shows
+                    </li>
                     <li className="menuItem">
-                        <HiOutlineSearch onClick={() => openSearch()}/>
+                        <HiOutlineSearch onClick={() => openSearch()} />
                     </li>
                 </ul>
 

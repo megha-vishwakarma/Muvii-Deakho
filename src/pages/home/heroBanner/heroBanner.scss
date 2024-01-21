@@ -44,6 +44,7 @@
     }
 
     .heroBannerContent {
+        z-index: 10;
         display: flex;
         color: white;
         text-align: center;
@@ -73,6 +74,7 @@
 
         .searchInput {
             display: flex;
+            z-index: 10;
             align-items: center;
             width: 100%;
             input {
