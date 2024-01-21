@@ -13,7 +13,6 @@ const Trending = () => {
         setEndpoint(tab.toLowerCase());
     }   
 
-    console.log(data?.results)
     return <div className="carouselSection">
         <ContentWrapper>
             <span className="carouselTitle">Trending</span>

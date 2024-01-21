@@ -10,16 +10,15 @@ const Popular = () => {
     const [endpoint, setEndpoint] = React.useState("movie")
     const {data, loading} = useFetch(`/${endpoint}/popular`)
     const onTabChange = (tab) => {
-        setEndpoint(tab.toLowerCase());
+        setEndpoint(tab === "Movies" ? "movie" : "tv")
     }   
 
-    console.log(data?.results)
     return <div className="carouselSection">
         <ContentWrapper>
             <span className="carouselTitle">Popular</span>
-            <SwitchTabs data = {["Movie", "Tv"]} onTabChange={onTabChange}/>
+            <SwitchTabs data = {["Movies", "Tv"]} onTabChange={onTabChange}/>
         </ContentWrapper>
-        <Carousel data = {data?.results} loading = {loading}/>
+        <Carousel data = {data?.results} loading = {loading} endpoint={endpoint}/>
         
     </div>;
 };

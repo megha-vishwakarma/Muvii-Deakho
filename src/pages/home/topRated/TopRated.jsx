@@ -13,13 +13,12 @@ const TopRated = () => {
         setEndpoint(tab.toLowerCase());
     }   
 
-    console.log(data?.results)
     return <div className="carouselSection">
         <ContentWrapper>
             <span className="carouselTitle">Top Rated</span>
             <SwitchTabs data = {["Movie", "Tv"]} onTabChange={onTabChange}/>
         </ContentWrapper>
-        <Carousel data = {data?.results} loading = {loading}/>
+        <Carousel data = {data?.results} loading = {loading} endpoint={endpoint}/>
         
     </div>;
 };

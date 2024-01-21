@@ -51,11 +51,13 @@ const Header = () => {
     const searchQueryHandler = (event) => {
         if (event.key === "Enter" && searchQuery !== "") {
             navigate(`/search/${searchQuery}}`);
+            
+            setTimeout(() => {
+                setShowSearch(false);
+            }, 1000);
         }
 
-        setTimeout(() => {
-            setShowSearch(false);
-        }, 1000);
+        
     };
 
     const openMobileMenu = () => {
