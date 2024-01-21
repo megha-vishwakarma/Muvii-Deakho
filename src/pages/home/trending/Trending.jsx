@@ -2,7 +2,7 @@ import React from "react";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import "../style.scss";
 import SwitchTabs from "../../../components/switchTabs/SwitchTabs";
-import useFetch from "../../../hooks/UseFetch";
+import useFetch from "../../../hooks/useFetch";
 import Carousel from "../../../components/carousel/Carousel";
 
 const Trending = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import useFetch from "../../../hooks/UseFetch";
+import useFetch from "../../../hooks/useFetch";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import MyImage from "../../../components/img/MyImage";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
