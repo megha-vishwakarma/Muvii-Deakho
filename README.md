@@ -1,3 +1,4 @@
+![Visitor Count](https://profile-counter.glitch.me/khan-mujeeb/count.svg)
 # Muvii Deakho
 
 Muvii Deakho is a film database powered by the TMBD API. Users can explore recently released movies and TV series, access their details and ratings, discover popular and top-rated films, and receive recommendations for similar movies.
